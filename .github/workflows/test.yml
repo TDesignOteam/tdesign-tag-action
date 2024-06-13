@@ -2,7 +2,7 @@ name: tag action
 
 on:
   pull_request:
-    branches: [main]
+    branches: [develop]
     types: [opened, synchronize, reopened]
 jobs:
   defatul:

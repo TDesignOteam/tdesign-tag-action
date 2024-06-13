@@ -1,0 +1,30 @@
+name: tag action
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+jobs:
+  defatul:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: TDesignOteam/tdesign-tag-action@develop
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+  json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: TDesignOteam/tdesign-tag-action@develop
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
+          version_file: ./test/fixtures/version/package.json
+  yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: TDesignOteam/tdesign-tag-action@develop
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}     
+          version_file: ./test/fixtures/version/pubspec.yaml         
